@@ -1,0 +1,10 @@
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'se.centril.robospock:gradle-plugin-robospock:1.0.1'
+  }
+}
+
+apply plugin: 'robospock'

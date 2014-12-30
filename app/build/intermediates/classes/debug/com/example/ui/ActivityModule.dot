@@ -1,0 +1,8 @@
+digraph G1 {
+  concentrate = true;
+  MainActivity -> AppContainer;
+  SharedPreferences -> Application;
+  SpockTestApp -> ActivityHierarchyServer;
+  SpockTestApp -> SpockTestInitializer;
+  SpockTestInitializer -> Application;
+}

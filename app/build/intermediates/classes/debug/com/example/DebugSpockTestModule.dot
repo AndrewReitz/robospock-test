@@ -1,0 +1,26 @@
+digraph G1 {
+  concentrate = true;
+  n2 [label="@AnimationSpeed IntPreference"];
+  n2 -> SharedPreferences;
+  n3 [label="@PixelGridEnabled BooleanPreference"];
+  n3 -> SharedPreferences;
+  n4 [label="@PixelRatioEnabled BooleanPreference"];
+  n4 -> SharedPreferences;
+  n5 [label="@ScalpelEnabled BooleanPreference"];
+  n5 -> SharedPreferences;
+  n6 [label="@ScalpelWireframeEnabled BooleanPreference"];
+  n6 -> SharedPreferences;
+  n7 [label="@SeenDebugDrawer BooleanPreference"];
+  n7 -> SharedPreferences;
+  AppContainer -> DebugAppContainer;
+  DebugAppContainer -> n2;
+  DebugAppContainer -> n3;
+  DebugAppContainer -> n4;
+  DebugAppContainer -> n5;
+  DebugAppContainer -> n6;
+  DebugAppContainer -> n7;
+  SharedPreferences -> Application;
+  SpockTestApp -> ActivityHierarchyServer;
+  SpockTestApp -> SpockTestInitializer;
+  SpockTestInitializer -> Application;
+}
