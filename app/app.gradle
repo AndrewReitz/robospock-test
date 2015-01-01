@@ -15,7 +15,6 @@ def versionMinor = 0
 def versionPatch = 0
 def versionBuild = 0
 
-apply from: rootProject.file('gradle/signing.gradle')
 apply plugin: 'android-sdk-manager'
 apply plugin: 'com.android.application'
 apply plugin: 'hugo'
@@ -41,7 +40,10 @@ dependencies {
   compile 'com.github.frankiesardo:icepick:2.3.+'
   provided 'com.github.frankiesardo:icepick-processor:2.3.+'
 
-  compile 'io.reactivex:rxandroid:0.23.0'
+  //compile 'io.reactivex:rxjava:1.0.4'
+  //compile 'io.reactivex:rxandroid:0.23.0'
+  compile 'com.andrewreitz:shillelagh:0.5.0'
+  provided 'com.andrewreitz:shillelagh:0.5.0'
 }
 
 def gitSha = 'git rev-parse --short HEAD'.execute([], project.rootDir).text.trim()
@@ -62,15 +64,6 @@ android {
     buildConfigField "String", "BUILD_TIME", "\"${buildTime}\""
   }
 
-  signingConfigs {
-    release {
-      storeFile file(storeFilePath)
-      storePassword keystorePassword
-      keyAlias storeKeyAlias
-      keyPassword aliasKeyPassword
-    }
-  }
-
   buildTypes {
     debug {
       applicationIdSuffix '.dev'
@@ -78,7 +71,6 @@ android {
     }
 
     release {
-      signingConfig signingConfigs.release
     }
   }
 

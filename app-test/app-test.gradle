@@ -6,5 +6,13 @@ buildscript {
     classpath 'se.centril.robospock:gradle-plugin-robospock:1.0.1'
   }
 }
+repositories {
+  jcenter()
+}
 
+apply plugin: 'groovy'
 apply plugin: 'robospock'
+
+dependencies {
+  compile 'com.jakewharton.timber:timber:2.5.+'
+}

@@ -1,16 +1,16 @@
 package com.example;
 
-import javax.inject.Inject;
-import javax.inject.Singleton;
-import rx.Observable;
+import timber.log.Timber;
 
-@Singleton
 public final class TestClass {
-  @Inject TestClass() {
+  Class<?> c;
 
+  TestClass() {
+    System.out.println("HERE");
+    c = Timber.class;
   }
 
-  public Observable<String> testStuff() {
-    return Observable.just("Some Tests Data");
+  String getString() {
+    return "TEST";
   }
 }
